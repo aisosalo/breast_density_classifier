@@ -3,7 +3,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 import collections as col
 
-import layers_torch as layers
+from deepdensity import layers_torch as layers
 
 
 class BaselineBreastModel(nn.Module):

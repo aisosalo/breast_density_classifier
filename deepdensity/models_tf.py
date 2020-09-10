@@ -1,4 +1,4 @@
-import layers_tf as layers
+from deepdensity import layers_tf as layers
 
 
 def baseline(x, parameters, nodropout_probability=None, Gaussian_noise_std=None):

@@ -2,7 +2,7 @@ import argparse
 import torch
 import tensorflow as tf
 
-import models_torch
+from deepdensity import models_torch
 
 
 def histogram_tf_to_torch(input_path, output_path):

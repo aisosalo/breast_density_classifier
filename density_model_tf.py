@@ -1,8 +1,7 @@
 import argparse
 import tensorflow as tf
 
-import models_tf as models
-import utils
+from deepdensity import utils, models_tf as models
 
 
 def optimistic_restore(session, save_file):

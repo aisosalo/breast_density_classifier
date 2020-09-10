@@ -1,4 +1,5 @@
-import layers
+from deepdensity import layers
+
 
 def baseline(x, parameters, nodropout_probability = None, Gaussian_noise_std = None):
     
@@ -40,7 +41,7 @@ def baseline(x, parameters, nodropout_probability = None, Gaussian_noise_std = N
 
 	h = layers.all_views_global_avg_pool(h)
 	h = layers.all_views_flattening_layer(h)
-	h = layers.fc_layer(h, number_of_units = 4 * 256)
+	h = layers.fc_layer(h, number_of_units =4 * 256)
 	h = layers.dropout_layer(h, nodropout_probability)
 
 	y_prediction_density = layers.softmax_layer(h, number_of_outputs = 4)

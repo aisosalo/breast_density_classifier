@@ -1,12 +1,10 @@
 import argparse
 import torch
 
-import models_torch as models
-import utils
+from deepdensity import utils, models_torch as models
 
 
 def inference(parameters, verbose=True):
-
     # resolve device
     device = torch.device(
         "cuda:{}".format(parameters["gpu_number"]) if parameters["device_type"] == "gpu"
@@ -46,9 +44,11 @@ def inference(parameters, verbose=True):
         # nicely prints out the predictions
         print('Density prediction:\n'
               '\tAlmost entirely fatty (0):\t\t\t' + str(prediction_density[0, 0]) + '\n'
-              '\tScattered areas of fibroglandular density (1):\t' + str(prediction_density[0, 1]) + '\n'
-              '\tHeterogeneously dense (2):\t\t\t' + str(prediction_density[0, 2]) + '\n'
-              '\tExtremely dense (3):\t\t\t\t' + str(prediction_density[0, 3]) + '\n')
+                                                                                     '\tScattered areas of fibroglandular density (1):\t' + str(
+            prediction_density[0, 1]) + '\n'
+                                        '\tHeterogeneously dense (2):\t\t\t' + str(prediction_density[0, 2]) + '\n'
+                                                                                                               '\tExtremely dense (3):\t\t\t\t' + str(
+            prediction_density[0, 3]) + '\n')
 
     return prediction_density[0]
 
